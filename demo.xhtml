@@ -35,9 +35,14 @@ function got_a_click() {
     send('"got-a-click"');
 }
 
+function reload_page() {
+  send('"reload-page"');
+}
+
 function document_ready() {
     send('"document-ready"');
     document.getElementById('messages').addEventListener('click', got_a_click, false);
+    document.getElementById('reload').addEventListener('click', reload_page, false);
 }
 
 document.addEventListener('DOMContentLoaded', document_ready, false);
@@ -78,6 +83,10 @@ document.addEventListener('DOMContentLoaded', document_ready, false);
 
     <p id="messages">
       Click here (yes, anywhere here)...<br/>
+    </p>
+
+    <p>
+      <button id="reload" name="reload">reload</button>
     </p>
 
   </body>

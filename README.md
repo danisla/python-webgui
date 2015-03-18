@@ -5,4 +5,4 @@ Implementation of HTML GUI with python, WebKit and GTK. Original source from: ht
 ## Dependencies
 
     sudo apt-get install python-webkit
-    sudo pip install simplejson
+    sudo pip install -r requirements.txt

@@ -148,7 +148,7 @@ def launch_browser(uri, quit_function=None, echo=True, size=(800,600), fullscree
     window.show_all()
 
     if fullscreen:
-    	window.fullscreen()
+        window.fullscreen()
 
     message_queue = Queue.Queue()
 
