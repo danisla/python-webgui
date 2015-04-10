@@ -1,5 +1,6 @@
 import signal
 import os
+import sys
 import time
 import urllib
 import json
@@ -29,12 +30,17 @@ def main():
 
     start_gtk_thread()
 
-    # Create a proper file:// URL pointing to demo.xhtml:
-    file = os.path.abspath('demo.xhtml')
-    uri = 'file://' + urllib.pathname2url(file)
+    if len(sys.argv) == 2:
+        uri = sys.argv[1]
+    else:
+        # Create a proper file:// URL pointing to demo.xhtml:
+        file = os.path.abspath('demo.xhtml')
+        uri = 'file://' + urllib.pathname2url(file)
+
     browser, web_recv, web_send, window = \
         synchronous_gtk_message(launch_browser)(uri,
-                                                quit_function=Global.set_quit,
+                                                #quit_function=Global.set_quit,
+                                                quit_function=None,
                                                 size=(480,320),
                                                 fullscreen=True,
                                                 echo=False
